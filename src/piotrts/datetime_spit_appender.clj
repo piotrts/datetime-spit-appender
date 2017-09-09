@@ -6,7 +6,7 @@
 ;; based on taoensso.timbre.appenders.core/spit-appender
 (defn datetime-spit-appender
   "Returns a datetime-spit appender for Clojure. fname-format
-  is a java.time.format.DateTimeFormatter pattern."
+  is a java.text.SimpleDateFormat pattern."
   [& [{:keys [fname-format append?]
         :or  {fname-format  "'./timbre-spit-'yyyy-MM-dd'.log'"
               append? true}}]]
@@ -28,4 +28,4 @@
                                  file (File. ^String fname)
                                  dir (.getParentFile (.getCanonicalFile file))]
                              (when-not (.exists dir) (.mkdirs dir))
-                               (self (assoc data :__spit-appender/retry? true))))))))}))
+                             (self (assoc data :__spit-appender/retry? true))))))))}))
