@@ -7,10 +7,10 @@
 (defn datetime-spit-appender
   "Returns a datetime-spit appender for Clojure. fname-format
   is a java.time.format.DateTimeFormatter pattern."
-  [& [{:keys  [fname-format append?]
-        :or   {fname-format  "'./timbre-spit-'yyyy-MM-dd'.log'"
-               append? true}}]]
-  (let  [date-format (SimpleDateFormat. fname-format)]
+  [& [{:keys [fname-format append?]
+        :or  {fname-format  "'./timbre-spit-'yyyy-MM-dd'.log'"
+              append? true}}]]
+  (let [date-format (SimpleDateFormat. fname-format)]
     {:enabled?   true
      :async?     false
      :min-level  nil
